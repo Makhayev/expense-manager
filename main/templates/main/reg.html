@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="bgImg">
+        <div class="py-5 text-center">
+          <div class="container card authCard px-4">
+            <h2 class="mb-4 mt-4 sum">Регистрация</h2>
+            <form method="post">
+              {% csrf_token %}
+              {{ form }}
+              <!-- {% for el in form%}
+              <label for="{{ el.auto_id }}" class="">{{ el.label }}</label>
+              {{ el }}
+              {% endfor %} -->
+              <div class="row justify-content-md-center mx-4">
+                <button type="submit" class="btn btn-light mb-4 sum">Зарегистрироваться</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </section>
+{% endblock %}

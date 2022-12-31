@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container-xxl">
+            <form action="{% url 'data' %}" method="get">
+                <div class="row my-3">
+                    <div class="col-2" style='min-width: 200px!important;'>
+                        <select class="form-control" name="category">
+                            <option selected="selected" disabled>Выберите категорию</option>
+                            <option>Продукты</option>
+                            <option>Проезд</option>
+                            <option>Баловашки</option>
+                            <option>Прочее</option>
+                        </select>
+                    </div>
+                    <div class="col-2" style='min-width: 200px!important;'>
+                        <select class="form-control" name="budget">
+                            <option selected="selected" disabled>Выберите бюджет</option>
+                            <option>Алихан</option>
+                            <option>Таня</option>
+                        </select>
+                    </div>
+                    <div class="col-2" style='min-width: 200px!important;'>
+                        <input type="text" name="description" class="form-control" placeholder="Описание">
+                    </div>
+                    <div class="col-2" style='min-width: 200px!important;'>
+                        <input type="date" name="date" class="form-control">
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-outline-secondary">Найти</button>
+                    </div>
+                    <div class="col-2">
+                        <a href="export-to-csv" class="btn btn-outline-success">Скачать данные</a>
+                    </div>
+                </div>
+            </form>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Сумма</th>
+                    <th scope="col">Категория</th>
+                    <th scope="col">Бюджет</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Дата</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for el in tasks%}
+                        {% if el.author == request.user %}
+                            <tr>
+                                <td>{{ el.money }}</td>
+                                <td>{{ el.category }}</td>
+                                <td>{{ el.budget }}</td>
+                                <td>{{ el.description }}</td>
+                                <td>{{ el.date | date:"Y-m-d" }}</td>
+                                <td>
+                                    <a href="{% url 'delete' el.id %}" class="btn btn-outline-danger"><i class="bi bi-trash3"></i></a>
+                                </td>  
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

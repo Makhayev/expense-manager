@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="bgImg">
+        <div class="py-5 text-center">
+          <div class="container card authCard px-4">
+            <h2 class="mb-4 mt-4 sum">Авторизация</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <!-- <div class="row justify-content-md-center">
+                    <div class="col-md-10 mb-4">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-10 mb-4">
+                        {{ form.password }}
+                    </div>
+                </div> -->
+              <div class="row justify-content-md-center mx-1">
+                  <button type="submit" class="btn btn-light mb-2 col-md-11 sum">Войти</button>
+              </div>
+            </form>
+            <hr style="color:rgb(255, 255, 255)">
+            <div class="row justify-content-md-center mx-1">
+              <a class="btn btn-light mb-4 col-md-11 sum" href="{% url 'register' %}">Зарегистрироваться</a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+{% endblock %}

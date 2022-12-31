@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+  </head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md bg-light">
+      <div class="container-xxl">
+        <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarMenu" 
+        aria-controls="navbarMenu" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand ">{{ request.user }}</a>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Расходы</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'data' %}">История расходов</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'auth' %}">Авторизация</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'graf' %}">Графики</a>
+            </li>
+              <!-- <a class="navbar-brand">{{ request.user }}</a> -->
+          </ul>
+          <span></span>
+          <!-- <a class="navbar-brand ">{{ request.user }}</a> -->
+          <a class="nav-link btn-danger" href="{% url 'logout' %}">Выйти</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+    {% block content %}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</body>
+</html>

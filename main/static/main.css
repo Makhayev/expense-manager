@@ -1,0 +1,44 @@
+.bgImg{
+    /* background-image: url("./image/word-image-79.jpg"); */
+    background-image: url("https://rameezulhaq.com/wp-content/uploads/2021/05/PPC-Service-Karachi-01.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.sum{
+    color: rgb(255, 255, 255);
+}
+.cardBg{
+    background-color: rgb(100, 112, 225)!important;
+    width: 35rem!important;
+}
+.authCard{
+    background-color: rgb(100, 112, 225)!important;
+    width: 25rem!important;
+}
+.cansize{
+    width: 100%!important;
+    height: auto!important;
+}
+.icon-shape {
+    width: 68px;
+    height: 68px;
+    background-position: 50%;
+    border-radius: .75rem;
+    background: linear-gradient(to bottom right, rgb(0, 0, 210), rgb(215, 192, 255));
+}
+
+@media (min-width: 500px) and (max-width: 767.98px) {
+    .cardBg{
+        width: 25rem!important;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 499px) {
+    .cardBg{
+        width: 20rem!important;
+    }
+    .authCard{
+        width: 20rem!important;
+    }
+}

@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+  <section>
+    <div class="bgImg">
+        <div class="py-5 text-center">
+          <div class="container card cardBg">
+            <h2 class="mb-4 mt-4 sum">Добавить расходы</h2>
+            <form method="post">
+              <div class="row justify-content-md-center">
+                {% csrf_token %}
+                <div class="col-md-5 mb-3">
+                  {{ form.money }}
+                </div>
+                <div class="col-md-5 mb-3">
+                  {{ form.category }}
+                </div>
+              </div>      
+              <div class="row justify-content-md-center">
+                <div class="col-md-5 mb-3">
+                  {{ form.budget }}
+                </div>   
+                <div class="col-md-5 mb-3">
+                  {{ form.date }}
+                </div>  
+              </div>
+              <div class="row justify-content-md-center">
+                <div class="col-md-10 mb-4">
+                  {{ form.description }}
+                </div>
+              </div>
+              <div class="row justify-content-md-center mx-5">
+                  <button type="submit" class="btn btn-light mb-4 sum">Добавить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </section>
+{% endblock %}
